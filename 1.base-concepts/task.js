@@ -17,3 +17,31 @@ function solveEquation(a, b, c) {
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   
 }
+function calculateTotalMortgage(percent, contribution, amount, date) {
+  if (isNaN(percent)) {
+    return false;
+  }
+  if (isNaN(contribution)) {
+    return false;
+  }
+  if (isNaN(amount)) {
+    return false;
+  }
+  if (isNaN(date)) {
+    return false;
+  }
+  let bodyCredit = 0;
+
+  let newPesent = percent / 100 / 12;
+  if (contribution) {
+    bodyCredit = amount - contribution;
+  } else {
+    bodyCredit = amount;
+  }
+
+  let monthlyPayment =
+    bodyCredit * (newPesent + newPesent / ((1 + newPesent)  date - 1));
+  let totalAmount = Number((monthlyPayment * date).toFixed(2));
+
+  return totalAmount;
+}
